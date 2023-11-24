@@ -8,6 +8,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 set(ETIB_SHARED_LIB ${CMAKE_CURRENT_SOURCE_DIR}/lib/libgame-engine.so)
 
 include_directories(include)
+include_directories(lib/game-engine/include)
 
 add_executable(volcano ${SOURCES})
 target_link_libraries(volcano ${ETIB_SHARED_LIB})

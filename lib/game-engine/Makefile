@@ -1,6 +1,10 @@
 NAME	=	libgame-engine.so
 all:
-	rm -rf build && mkdir build && cd build && cmake .. && make
+	@if [ ! -d "build" ]; then \
+		mkdir build && cd build && cmake .. && make && cp $(NAME) ../; \
+	else \
+		cd build && make && cp $(NAME) ../; \
+	fi
 
 clean:
 	rm -rf build

@@ -1,8 +1,9 @@
 #include <iostream>
+#include "Game/GameManager.hpp"
 
 int main(void)
 {
-
-    std::cout << "Hello World" << std::endl;
+    etib::GameManager game;
+    game.run();
     return 0;
 }
