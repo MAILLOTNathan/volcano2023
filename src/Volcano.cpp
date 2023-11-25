@@ -49,7 +49,8 @@ void Volcano::registerGUI()
 void Volcano::run()
 {
     EntityManager e_manager;
-    // e_manager.registerEntity("player", "assets/theboat.png");
+    e_manager.registerEntity("player", "assets/theboat.png");
+    e_manager.getEntity("player")->setTextureRect(sf::IntRect(10, 10, 100, 100));
     sf::Event event;
     while (_window->isOpen()) {
         _window->pollEvent();
