@@ -9,6 +9,8 @@
 #include "Entity/EntityManager.hpp"
 #include "Volcano.hpp"
 
+sf::Color color = sf::Color::Black;
+
 Volcano::Volcano()
 {
 }
@@ -35,7 +37,11 @@ void Volcano::registerEvent()
 
 void Volcano::registerGUI()
 {
-    this->_guiManager->addButton("test", "assets/play_normal.png", "assets/play_hover.png", sf::Vector2f(100, 100), sf::Vector2f(1, 1), [&]() {
+    this->_guiManager->addButton("play", "assets/play_normal.png", "assets/play_hover.png", sf::Vector2f(100, 100), sf::Vector2f(1, 1), [&]() {
+        color = sf::Color::Red;
+    });
+
+    this->_guiManager->addButton("quit", "assets/quit_normal.png", "assets/quit_hover.png", sf::Vector2f(200, 100), sf::Vector2f(1, 1), [&]() {
         this->_window->stop();
     });
 }
@@ -49,7 +55,7 @@ void Volcano::run()
         _window->pollEvent();
         e_manager.updateEntities(_window->getWindow());
         _guiManager->handleEvent(_window->getWindow(), _window->getEvent());
-        _window->clear();
+        _window->clear(color);
         e_manager.drawEntity("player", _window->getWindow());
         _guiManager->draw(_window->getWindow());
         _window->draw();

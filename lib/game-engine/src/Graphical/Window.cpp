@@ -32,9 +32,9 @@ void Window::stop()
     this->_window->close();
 }
 
-void Window::clear()
+void Window::clear(sf::Color color)
 {
-    this->_window->clear();
+    this->_window->clear(color);
 }
 
 void Window::draw()

@@ -6,6 +6,7 @@
 */
 
 #pragma once
+#include "cppIncludes.hpp"
 #include "Maths/Rect.hpp"
 #include "Maths/Vector2.hpp"
 #include "Graphical/Window.hpp"
