@@ -27,6 +27,7 @@ class Window {
         std::uint32_t getWidth() const;
         std::uint32_t getHeight() const;
         std::string getTitle() const;
+        std::shared_ptr<sf::RenderWindow> getWindow() { return _window; }
 
     private:
         std::shared_ptr<sf::RenderWindow> _window;
