@@ -18,7 +18,7 @@ class SceneManager {
         void removeScene(const std::string &name);
         void loadScene(const std::string &name);
         void unloadScene(const std::string &name);
-        void update();
+        void update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
         void draw(std::shared_ptr<sf::RenderWindow> window);
         void unloadAllScenes();
     private:

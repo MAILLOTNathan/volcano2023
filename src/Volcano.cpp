@@ -8,6 +8,7 @@
 #include "Graphical/Window.hpp"
 #include "Entity/EntityManager.hpp"
 #include "Volcano.hpp"
+#include "Scenes/MenuScene.hpp"
 
 sf::Color color = sf::Color::Black;
 
@@ -22,6 +23,8 @@ void Volcano::init(std::uint32_t width, std::uint32_t height, std::string title)
 
     _guiManager = std::make_shared<GUIManager>();
     _guiManager->init();
+
+    _sceneManager = std::make_shared<SceneManager>();
 }
 
 void Volcano::registerEvent()
@@ -48,17 +51,14 @@ void Volcano::registerGUI()
 
 void Volcano::run()
 {
-    EntityManager e_manager;
-    e_manager.registerEntity("player", "assets/theboat.png");
-    e_manager.getEntity("player")->setTextureRect(sf::IntRect(10, 10, 100, 100));
-    sf::Event event;
+    _sceneManager->addScene("menu", std::make_shared<MenuScene>());
+    _sceneManager->loadScene("menu");
+    // e_manager.registerEntity("player", "assets/theboat.png");
     while (_window->isOpen()) {
         _window->pollEvent();
-        e_manager.updateEntities(_window->getWindow());
-        _guiManager->handleEvent(_window->getWindow(), _window->getEvent());
         _window->clear(color);
-        e_manager.drawEntity("player", _window->getWindow());
-        _guiManager->draw(_window->getWindow());
+        _sceneManager->update(_window->getWindow(), _window->getEvent());
+        _sceneManager->draw(_window->getWindow());
         _window->draw();
     }
 }

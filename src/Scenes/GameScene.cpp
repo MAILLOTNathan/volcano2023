@@ -15,7 +15,7 @@ void GameScene::init()
 {
 }
 
-void GameScene::update()
+void GameScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
 }
 

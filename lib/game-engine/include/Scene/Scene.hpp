@@ -15,7 +15,7 @@ class Scene {
         Scene();
         virtual ~Scene() = default;
         virtual void init();
-        virtual void update();
+        virtual void update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
         virtual void draw(std::shared_ptr<sf::RenderWindow> window);
     private:
 };
