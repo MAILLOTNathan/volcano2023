@@ -51,9 +51,9 @@ sf::Vector2f extractData(std::string input)
 
 unsigned long goToNextData(std::string input, unsigned long position)
 {
-  while (position < input.length() && input[position] != ']') {
+  while (position < input.length() && input[position] != '[') {
     position++;
   }
 
-  return position;
+  return position + 1;
 }

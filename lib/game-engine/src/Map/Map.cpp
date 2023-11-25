@@ -25,6 +25,7 @@ void Map::init(std::string file)
   while (file[index] != '[') {
     name += file[index++];
   }
+  index++;
   while (index < file.length()) {
     this->addPlateform(extractData(file.substr(index)));
     index = goToNextData(file, index);
