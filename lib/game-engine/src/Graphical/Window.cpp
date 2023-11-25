@@ -12,6 +12,7 @@ Window::Window()
     this->_height = 0;
     this->_width = 0;
     this->_title = "";
+    this->_eventManager = Event();
 }
 
 Window::~Window()
@@ -41,11 +42,12 @@ void Window::draw()
     this->_window->display();
 }
 
-void Window::pollEvent(sf::Event &event)
+void Window::pollEvent()
 {
-    while (this->_window->pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
+    while (this->_window->pollEvent(this->_event)) {
+        if (this->_event.type == sf::Event::Closed)
             this->_window->close();
+        this->_eventManager.manageEvent(this->_event);
     }
 }
 
@@ -67,4 +69,14 @@ std::uint32_t Window::getHeight() const
 std::string Window::getTitle() const
 {
     return this->_title;
+}
+
+sf::Event Window::getEvent() const
+{
+    return this->_event;
+}
+
+Event& Window::getEventManager()
+{
+    return this->_eventManager;
 }

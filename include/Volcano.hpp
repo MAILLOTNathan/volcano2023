@@ -14,6 +14,7 @@ class Volcano {
     public:
         Volcano();
         void init(std::uint32_t width, std::uint32_t height, std::string title);
+        void registerEvent();
         void run();
         ~Volcano();
     private:

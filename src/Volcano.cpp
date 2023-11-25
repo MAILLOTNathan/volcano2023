@@ -18,9 +18,21 @@ void Volcano::init(std::uint32_t width, std::uint32_t height, std::string title)
     this->_window->init(width, height, title);
 }
 
+void Volcano::registerEvent()
+{
+    this->_window->getEventManager().bindKey(std::make_shared<Button<etibEvent::Keyboard>>(etibEvent::Keyboard::Escape, etibEvent::JUST_PRESSED), [&]() {
+        this->_window->stop();
+    });
+
+    this->_window->getEventManager().bindKey(std::make_shared<Button<etibEvent::Keyboard>>(etibEvent::Keyboard::A, etibEvent::JUST_PRESSED), [&]() {
+        std::cout << "A pressed" << std::endl;
+    });
+}
+
 void Volcano::run()
 {
     while (_window->isOpen()) {
+        _window->pollEvent();
         _window->clear();
         _window->draw();
     }
