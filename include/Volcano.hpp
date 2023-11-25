@@ -6,18 +6,16 @@
 */
 
 #pragma once
-#include "Graphical/AGraphical.hpp"
-#include "SFMLGraphical.hpp"
-#include "Graphical/ASprite.hpp"
 #include "Maths/Rect.hpp"
 #include "Maths/Vector2.hpp"
+#include "Graphical/Window.hpp"
 
 class Volcano {
     public:
         Volcano();
-        void init();
+        void init(std::uint32_t width, std::uint32_t height, std::string title);
         void run();
         ~Volcano();
     private:
-        std::shared_ptr<etib::IGraphical> _graphical;
+        std::shared_ptr<Window> _window;
 };

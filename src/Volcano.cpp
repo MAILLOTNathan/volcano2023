@@ -5,22 +5,24 @@
 ** programmers start to count from 0
 */
 
+#include "Graphical/Window.hpp"
 #include "Volcano.hpp"
 
 Volcano::Volcano()
 {
 }
 
-void Volcano::init()
+void Volcano::init(std::uint32_t width, std::uint32_t height, std::string title)
 {
-    _graphical = std::make_shared<etib::AGraphical>();
+    _window = std::make_shared<Window>();
+    this->_window->init(width, height, title);
 }
 
 void Volcano::run()
 {
-    while (_graphical->isOpen()) {
-        _graphical->clear();
-        _graphical->draw();
+    while (_window->isOpen()) {
+        _window->clear();
+        _window->draw();
     }
 }
 

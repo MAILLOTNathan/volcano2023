@@ -15,6 +15,7 @@ clean:
 
 fclean:	clean
 	make -C lib/game-engine fclean
+	rm -fr lib/libgraphical-engine.so
 	rm -rf $(NAME)
 
 re:	fclean all

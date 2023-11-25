@@ -26,3 +26,4 @@ add_library(game-engine SHARED ${GAME_ENGINE_SOURCES})
 add_custom_command(TARGET game-engine POST_BUILD
 	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:game-engine> ${CMAKE_SOURCE_DIR}/../libgraphical-engine.so
 	)
+target_link_libraries(game-engine sfml-graphics sfml-window sfml-system sfml-audio)
