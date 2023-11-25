@@ -21,8 +21,8 @@ void MenuScene::init()
     this->_guiManager.addButton("play", "assets/play_normal.png", "assets/play_hover.png", sf::Vector2f(100, 100), sf::Vector2f(2.0f, 2.0f), []() {
         std::cout << "Button play clicked" << std::endl;
     });
-    this->_guiManager.addButton("quit", "assets/quit_normal.png", "assets/quit_hover.png", sf::Vector2f(100, 200), sf::Vector2f(2.0f, 2.0f), []() {
-        std::cout << "Button quit clicked" << std::endl;
+    this->_guiManager.addButton("quit", "assets/quit_normal.png", "assets/quit_hover.png", sf::Vector2f(100, 200), sf::Vector2f(2.0f, 2.0f), [&]() {
+        this->_window->close();
     });
 }
 

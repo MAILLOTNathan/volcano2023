@@ -14,11 +14,22 @@ std::string readFileToString(const std::string& filename) {
     return content.str();
 }
 
-int main(void)
+int main2(void)
 {
     Map *map = new Map();
 
     map->init(readFileToString("ressources/test.map"));
     map->display();
+    return 0;
+}
+
+int main(void)
+{
+    Volcano volcano;
+
+    volcano.init(1920, 1080, "Volcano");
+    volcano.registerEvent();
+    volcano.registerGUI();
+    volcano.run();
     return 0;
 }

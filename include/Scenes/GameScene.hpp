@@ -10,6 +10,8 @@
 #include "Scene/Scene.hpp"
 #include "Graphical/Event.hpp"
 
+#define PLAYER_SPEED 5
+
 class GameScene : public Scene {
     public:
         GameScene();
@@ -22,4 +24,5 @@ class GameScene : public Scene {
         sf::Texture _texturePlayerStatic;
         sf::Texture _texturePlayerMoving;
         std::shared_ptr<Event> _event;
+        sf::Vector2f _playerVelocity;
 };
