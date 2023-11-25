@@ -13,11 +13,11 @@ class Plateform {
     Plateform();
     ~Plateform();
 
-    sf::Vector2f position;
-    bool passed;
-
     void init(sf::Vector2f position, bool passed);
     void setPosition(sf::Vector2f position);
     void setPassed(bool passed);
     void display(void);
+
+    sf::Vector2f _position;
+    bool _passed;
 };

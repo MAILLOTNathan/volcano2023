@@ -16,11 +16,11 @@ class Map {
     Map();
     ~Map();
 
-    std::string name;
-    std::vector<Plateform *> map;
-
     void init(std::string file);
     void addPlateform(sf::Vector2f pos);
     void setName(std::string name);
     void display(void);
+
+    std::string _name;
+    std::vector<std::shared_ptr<Plateform>> _map;
 };

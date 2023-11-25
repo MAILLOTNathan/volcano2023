@@ -33,20 +33,20 @@ void Map::init(std::string file)
 
 void Map::addPlateform(sf::Vector2f position)
 {
-  Plateform *plateform = new Plateform();
+  std::shared_ptr<Plateform> plateform = std::make_shared<Plateform>();
   plateform->init(position, false);
-  this->map.push_back(plateform);
+  this->_map.push_back(plateform);
 }
 
 void Map::setName(std::string name)
 {
-  this->name = name;
+  this->_name = name;
 }
 
 void Map::display(void)
 {
-  std::cout << "Map: " + this->name << std::endl;
-  for (unsigned long i = 0; i < this->map.size(); i++) {
-    this->map[i].display();
+  std::cout << "Map: " + this->_name << std::endl;
+  for (unsigned long i = 0; i < this->_map.size(); i++) {
+    this->_map[i]->display();
   }
 }

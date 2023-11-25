@@ -11,4 +11,4 @@
 bool isAvailableChar (char c, std::string availables);
 std::string getData(std::string input);
 sf::Vector2f extractData(std::string input);
-unsigned long goToNextData(std::string input, unsigned long position)
+unsigned long goToNextData(std::string input, unsigned long position);

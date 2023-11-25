@@ -25,19 +25,19 @@ void Plateform::init(sf::Vector2f position, bool passed)
 
 void Plateform::setPosition(sf::Vector2f position)
 {
-  this->position = position;
+  this->_position = position;
 }
 
 void Plateform::setPassed(bool passed)
 {
-  this->passed = passed;
+  this->_passed = passed;
 }
 
 void Plateform::display(void)
 {
   std::cout << "========" << std::endl;
   std::cout << "Plateform: " << std::endl;
-  std::cout << "x: " + this->position.x << std::endl;
-  std::cout << "y: " + this->position.y << std::endl;
+  printf("x: %f\n", this->_position.x);
+  printf("y: %f\n", this->_position.y);
   std::cout << "========" << std::endl;
 }
