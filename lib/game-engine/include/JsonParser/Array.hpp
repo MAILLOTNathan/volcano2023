@@ -8,8 +8,8 @@
 #ifndef ARRAY_HPP_
 #define ARRAY_HPP_
 
-#include "cppIncludes.hpp"
-#include "JsonParser/Object.hpp"
+#include "../cppIncludes.hpp"
+#include "Object.hpp"
 
 class Array {
   public:

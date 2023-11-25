@@ -8,7 +8,7 @@
 #ifndef UTILS_HPP_
 #define UTILS_HPP_
 
-#include "cppIncludes.hpp"
+#include "../cppIncludes.hpp"
 
 bool isDigit(char c);
 std::string getNumberString(const std::string &string);

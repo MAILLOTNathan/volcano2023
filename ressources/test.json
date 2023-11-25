@@ -1,0 +1,7 @@
+{
+  "string": "tmp",
+  "int": 4,
+  "float": 4.2,
+  "boolean": true,
+  "object": { "string": "tmp" }
+}
