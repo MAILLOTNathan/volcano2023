@@ -8,27 +8,37 @@
 #ifndef OBJECT_HPP_
 #define OBJECT_HPP_
 
-#include <string>
-#include <iostream>
+#include "cppIncludes.hpp"
+#include "JsonParser/Array.hpp"
 
 class Object {
   public:
-    Object(char *jsonValue);
+    Object(const std::string &input);
     ~Object();
 
-  const nullptrstd::string name;
+  std::string name;
   union {
-    char *string;
+    std::string string;
     double number;
-    Object *object;
-    Object **array;
+    std::vector<Object> objects;
+    bool boolean;
+    Array array;
   } value;
   enum {
     ARRAY,
     STRING,
     OBJECT,
     NUMBER,
+    BOOL,
   } type;
+  unsigned long size;
+
+  void addObject(const std::string &input);
+  void setName(const std::string &input);
+  void addProperty(const std::string &input);
+
+  unsigned long setString(const std::string &input);
+  unsigned long setArray(const std::string &input);
 };
 
 #endif /* !OBJECT_HPP_ */
