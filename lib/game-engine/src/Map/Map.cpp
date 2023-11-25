@@ -32,10 +32,10 @@ void Map::init(std::string file)
   }
 }
 
-void Map::addPlateform(sf::Vector2f position)
+void Map::addPlateform(params_t *params)
 {
   std::shared_ptr<Plateform> plateform = std::make_shared<Plateform>();
-  plateform->init(position, false);
+  plateform->init(params);
   this->_map.push_back(plateform);
 }
 
