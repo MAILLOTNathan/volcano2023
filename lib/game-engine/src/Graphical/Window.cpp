@@ -24,7 +24,7 @@ void Window::init(std::uint32_t width, std::uint32_t height, std::string title)
     this->_width = width;
     this->_height = height;
     this->_title = title;
-    this->_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(width, height), title);
+    this->_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(width, height), title, sf::Style::Fullscreen | sf::Style::Close);
 }
 
 void Window::stop()
