@@ -1,9 +1,10 @@
-#include <iostream>
-#include "Game/GameManager.hpp"
+#include "Volcano.hpp"
 
 int main(void)
 {
-    etib::GameManager game;
-    game.run();
+    Volcano volcano;
+
+    volcano.init();
+    volcano.run();
     return 0;
 }

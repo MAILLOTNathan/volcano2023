@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** volcano2023
 ** File description:
-** Graphical asbtract class
+** IGraphical asbtract class
 */
 
 #ifndef GRAPHICAL_HPP_
@@ -12,10 +12,9 @@
 #include "ASprite.hpp"
 
 namespace etib {
-    class Graphical {
+    class IGraphical {
         public:
-            Graphical();
-            virtual ~Graphical() = default;
+            virtual ~IGraphical() = default;
 
             virtual void init() = 0;
             virtual void stop() = 0;
@@ -33,7 +32,6 @@ namespace etib {
             virtual void setSpriteRotation() = 0;
             virtual void setSpriteScale() = 0;
             virtual void drawSprite() = 0;
-
             virtual void createText() = 0;
             virtual void destroyText() = 0;
             virtual void setTextString() = 0;
@@ -42,16 +40,10 @@ namespace etib {
             virtual void setTextRotation() = 0;
             virtual void setTextScale() = 0;
             virtual void drawText() = 0;
-
-            std::uint32_t getWidth() const;
-            std::uint32_t getHeight() const;
-            std::string getTitle() const;
-
-        private:
-            std::uint32_t _width;
-            std::uint32_t _height;
-            std::string _title;
-            std::map<std::string, std::shared_ptr<ASprite>> _sprites;
+            virtual bool isOpen() = 0;
+            virtual std::uint32_t getWidth() const = 0;
+            virtual std::uint32_t getHeight() const = 0;
+            virtual std::string getTitle() const = 0;
     };
 }
 

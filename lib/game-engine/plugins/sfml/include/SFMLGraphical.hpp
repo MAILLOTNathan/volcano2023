@@ -8,43 +8,45 @@
 #ifndef SFMLGRAPHICAL_HPP_
 #define SFMLGRAPHICAL_HPP_
 
-#include "../../../include/Graphical/Graphical.hpp"
+#include "../../../include/Graphical/AGraphical.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-class SFMLGraphical : public etib::Graphical {
+class SFMLGraphical : public etib::AGraphical {
     public:
         SFMLGraphical();
         ~SFMLGraphical();
 
-        void init() override;
-        void stop() override;
+        void init() ;
+        void stop() ;
 
-        void createWindow(std::uint32_t width, std::uint32_t height, std::string title) override;
-        void destroyWindow() override;
+        void createWindow(std::uint32_t width, std::uint32_t height, std::string title) ;
+        void destroyWindow() ;
 
-        void clear() override;
-        void draw() override;
+        void clear() ;
+        void draw() ;
 
-        void createSprite() override;
-        void destroySprite() override;
-        void setSpriteTexture() override;
-        void setSpritePosition() override;
-        void setSpriteRotation() override;
-        void setSpriteScale() override;
-        void drawSprite() override;
+        void createSprite() ;
+        void destroySprite() ;
+        void setSpriteTexture() ;
+        void setSpritePosition() ;
+        void setSpriteRotation() ;
+        void setSpriteScale() ;
+        void drawSprite() ;
 
-        void createText() override;
-        void destroyText() override;
-        void setTextString() override;
-        void setTextFont() override;
-        void setTextPosition() override;
-        void setTextRotation() override;
-        void setTextScale() override;
-        void drawText() override;
+        bool isOpen();
+
+        void createText() ;
+        void destroyText() ;
+        void setTextString() ;
+        void setTextFont() ;
+        void setTextPosition() ;
+        void setTextRotation() ;
+        void setTextScale() ;
+        void drawText() ;
 
     private:
-        sf::RenderWindow *_window;
+        std::shared_ptr<sf::RenderWindow> _window;
         std::map<std::string, sf::Sprite> _sprites;
 };
 

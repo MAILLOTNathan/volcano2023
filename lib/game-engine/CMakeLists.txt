@@ -13,13 +13,16 @@ FetchContent_Declare(
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(ETIB_GRAPHICAL_LIBS ${CMAKE_CURRENT_SOURCE_DIR}/plugins/libgraphical-sfml.so)
+
 
 file(GLOB_RECURSE GAME_ENGINE_SOURCES "src/*.cpp")
 include_directories(include)
+include_directories(plugins/sfml/include)
 
 # create a shared library
 add_library(game-engine SHARED ${GAME_ENGINE_SOURCES})
 # copy the library into a folder
 add_custom_command(TARGET game-engine POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:game-engine> ${CMAKE_SOURCE_DIR}/../libgame-engine.so
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:game-engine> ${CMAKE_SOURCE_DIR}/../libgraphical-engine.so
 	)

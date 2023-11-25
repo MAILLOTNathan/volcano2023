@@ -1,6 +1,5 @@
-NAME	=	libgame-engine.so
+NAME	=	libgraphical-sfml.so
 all:
-	make -C plugins/sfml
 	@if [ ! -d "build" ]; then \
 		mkdir build && cd build && cmake .. && make && cp $(NAME) ../; \
 	else \
@@ -8,11 +7,9 @@ all:
 	fi
 
 clean:
-	make -C plugins/sfml clean
 	rm -rf build
 
 fclean:	clean
-	make -C plugins/sfml fclean
 	rm -rf ../$(NAME)
 	rm -rf $(NAME)
 
