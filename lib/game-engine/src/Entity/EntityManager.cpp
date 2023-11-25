@@ -33,6 +33,13 @@ void EntityManager::drawEntity(const std::string &name, std::shared_ptr<sf::Rend
     _entities[name]->draw(window);
 }
 
+std::shared_ptr<Entity> EntityManager::getEntity(const std::string &name)
+{
+    if (_entities.find(name) == _entities.end())
+        return nullptr;
+    return _entities[name];
+}
+
 EntityManager::~EntityManager()
 {
 }

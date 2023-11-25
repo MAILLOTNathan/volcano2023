@@ -17,7 +17,7 @@ class EntityManager {
         void registerEntity(const std::string &name, const std::string &filename);
         void updateEntities(std::shared_ptr<sf::RenderWindow> window);
         void drawEntity(const std::string &name, std::shared_ptr<sf::RenderWindow> window);
-
+        std::shared_ptr<Entity> getEntity(const std::string &name);
     private:
         std::map<std::string, std::shared_ptr<Entity>> _entities;
 };
