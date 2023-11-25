@@ -30,6 +30,7 @@ class Window {
         std::string getTitle() const;
         sf::Event getEvent() const;
         Event& getEventManager();
+        std::shared_ptr<sf::RenderWindow> getWindow() { return _window; }
 
     private:
         std::shared_ptr<sf::RenderWindow> _window;

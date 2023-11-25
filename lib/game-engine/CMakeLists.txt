@@ -18,7 +18,6 @@ set(ETIB_GRAPHICAL_LIBS ${CMAKE_CURRENT_SOURCE_DIR}/plugins/libgraphical-sfml.so
 
 file(GLOB_RECURSE GAME_ENGINE_SOURCES "src/*.cpp")
 include_directories(include)
-include_directories(plugins/sfml/include)
 
 # create a shared library
 add_library(game-engine SHARED ${GAME_ENGINE_SOURCES})

@@ -6,6 +6,7 @@
 */
 
 #include "Graphical/Window.hpp"
+#include "Entity/EntityManager.hpp"
 #include "Volcano.hpp"
 
 Volcano::Volcano()
@@ -31,9 +32,14 @@ void Volcano::registerEvent()
 
 void Volcano::run()
 {
+    EntityManager e_manager;
+    e_manager.registerEntity("player", "assets/theboat.png");
+    sf::Event event;
     while (_window->isOpen()) {
         _window->pollEvent();
+        e_manager.updateEntities(_window->getWindow());
         _window->clear();
+        e_manager.drawEntity("player", _window->getWindow());
         _window->draw();
     }
 }
