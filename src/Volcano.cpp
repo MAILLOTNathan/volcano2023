@@ -17,6 +17,9 @@ void Volcano::init(std::uint32_t width, std::uint32_t height, std::string title)
 {
     _window = std::make_shared<Window>();
     this->_window->init(width, height, title);
+
+    _guiManager = std::make_shared<GUIManager>();
+    _guiManager->init();
 }
 
 void Volcano::registerEvent()
@@ -30,6 +33,13 @@ void Volcano::registerEvent()
     });
 }
 
+void Volcano::registerGUI()
+{
+    this->_guiManager->addButton("test", "assets/play_normal.png", "assets/play_hover.png", sf::Vector2f(100, 100), sf::Vector2f(1, 1), [&]() {
+        this->_window->stop();
+    });
+}
+
 void Volcano::run()
 {
     EntityManager e_manager;
@@ -39,8 +49,10 @@ void Volcano::run()
     while (_window->isOpen()) {
         _window->pollEvent();
         e_manager.updateEntities(_window->getWindow());
+        _guiManager->handleEvent(_window->getWindow(), _window->getEvent());
         _window->clear();
         e_manager.drawEntity("player", _window->getWindow());
+        _guiManager->draw(_window->getWindow());
         _window->draw();
     }
 }

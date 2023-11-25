@@ -6,6 +6,7 @@ int main(void)
 
     volcano.init(1920, 1080, "Volcano");
     volcano.registerEvent();
+    volcano.registerGUI();
     volcano.run();
     return 0;
 }
