@@ -6,6 +6,7 @@
 */
 
 #include "Scene/Scene.hpp"
+#include "Graphical/Event.hpp"
 
 Scene::Scene()
 {
@@ -13,6 +14,11 @@ Scene::Scene()
 
 void Scene::init()
 {
+}
+
+void Scene::setEvent(Event event)
+{
+    _event = event;
 }
 
 std::string Scene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)

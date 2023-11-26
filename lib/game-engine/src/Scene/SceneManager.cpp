@@ -6,19 +6,23 @@
 */
 
 #include "Scene/SceneManager.hpp"
+#include "Graphical/Event.hpp"
 
 SceneManager::SceneManager()
 {
     _currentScene = std::make_shared<Scene>();
 }
 
-void SceneManager::addScene(const std::string &name, std::shared_ptr<Scene> scene)
+void SceneManager::addScene(const std::string &name, std::shared_ptr<Scene> scene, Event event)
 {
     if (_scenes.find(name) != _scenes.end())
         throw std::runtime_error("Scene already exists");
     _scenes[name] = scene;
     _scenes[name]->init();
     _scenes[name]->setSceneName(name);
+    std::cout << "hello" << std::endl;
+
+    _scenes[name]->setEvent(event);
 }
 
 void SceneManager::removeScene(const std::string &name)

@@ -9,6 +9,8 @@
 #include "Entity/EntityManager.hpp"
 #include "Volcano.hpp"
 #include "Scenes/MenuScene.hpp"
+#include "Scenes/WinScene.hpp"
+#include "Scenes/LooseScene.hpp"
 
 sf::Color color = sf::Color::Black;
 
@@ -32,10 +34,6 @@ void Volcano::registerEvent()
     this->_window->getEventManager().bindKey(std::make_shared<Button<etibEvent::Keyboard>>(etibEvent::Keyboard::Escape, etibEvent::JUST_PRESSED), [&]() {
         this->_window->stop();
     });
-
-    this->_window->getEventManager().bindKey(std::make_shared<Button<etibEvent::Keyboard>>(etibEvent::Keyboard::A, etibEvent::JUST_PRESSED), [&]() {
-        std::cout << "A pressed" << std::endl;
-    });
 }
 
 void Volcano::registerGUI()
@@ -54,12 +52,13 @@ void Volcano::registerGUI()
 void Volcano::run()
 {
     std::string new_scene;
-    _sceneManager->addScene("menu", std::make_shared<MenuScene>());
-    _sceneManager->addScene("game", std::make_shared<GameScene>());
+    _sceneManager->addScene("menu", std::make_shared<MenuScene>(), _window->getEventManager());
+    _sceneManager->addScene("game", std::make_shared<GameScene>(), _window->getEventManager());
+    _sceneManager->addScene("win", std::make_shared<WinScene>(), _window->getEventManager());
+    _sceneManager->addScene("loose", std::make_shared<LooseScene>(), _window->getEventManager());
     _sceneManager->loadScene("menu");
     // e_manager.registerEntity("player", "assets/theboat.png");
     while (_window->isOpen()) {
-        std::cout << "The current scene name is: " << _sceneManager->getCurrentSceneName() << std::endl;
         _window->pollEvent();
         _window->clear(color);
         new_scene = _sceneManager->update(_window->getWindow(), _window->getEvent());

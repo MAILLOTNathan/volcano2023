@@ -14,7 +14,7 @@ class SceneManager {
         SceneManager();
         ~SceneManager();
 
-        void addScene(const std::string &name, std::shared_ptr<Scene> scene);
+        void addScene(const std::string &name, std::shared_ptr<Scene> scene, Event event);
         void removeScene(const std::string &name);
         void loadScene(const std::string &name);
         void unloadScene(const std::string &name);
