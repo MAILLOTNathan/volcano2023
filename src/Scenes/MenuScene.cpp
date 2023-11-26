@@ -22,7 +22,7 @@ void MenuScene::init()
         std::cout << "Button play clicked" << std::endl;
     });
     this->_guiManager.addButton("quit", "assets/quit_normal.png", "assets/quit_hover.png", sf::Vector2f(100, 200), sf::Vector2f(2.0f, 2.0f), [&]() {
-        this->_window->close();
+        exit(0);
     });
 }
 

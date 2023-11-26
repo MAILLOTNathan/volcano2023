@@ -45,11 +45,6 @@ void GUIManager::addButton(std::string name, std::string path_normal, std::strin
     _buttons[name]->setPosition(pos);
     _buttons[name]->setScale(scale);
     _buttons[name]->setRect(sf::IntRect(_buttons[name]->getSprite().getGlobalBounds()));
-    // show the rect
-    std::cout << "top: " << _buttons[name]->getRect().top << std::endl;
-    std::cout << "left: " << _buttons[name]->getRect().left << std::endl;
-    std::cout << "width: " << _buttons[name]->getRect().width << std::endl;
-    std::cout << "height: " << _buttons[name]->getRect().height << std::endl;
     _buttons[name]->setCallback(callback);
 }
 

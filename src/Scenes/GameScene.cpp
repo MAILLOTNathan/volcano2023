@@ -30,6 +30,15 @@ void GameScene::init()
 
 void GameScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
+    if (this->_playerVelocity.x != 0) {
+        this->_sprite.setTexture(this->_texturePlayerMoving);
+        if (this->_playerVelocity.x > 0 && this->_playerVelocity.y <= 0) {
+            this->_sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+            this->_sprite.setScale(sf::Vector2f(2.0f, 2.0f));
+        } 
+    }
+    else
+        this->_sprite.setTexture(this->_texturePlayerStatic);
 }
 
 void GameScene::draw(std::shared_ptr<sf::RenderWindow> window)
