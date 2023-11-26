@@ -18,9 +18,11 @@ class SceneManager {
         void removeScene(const std::string &name);
         void loadScene(const std::string &name);
         void unloadScene(const std::string &name);
-        void update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
+        std::string update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
         void draw(std::shared_ptr<sf::RenderWindow> window);
         void unloadAllScenes();
+        std::string getCurrentSceneName();
+
     private:
         std::map<std::string, std::shared_ptr<Scene>> _scenes;
         std::shared_ptr<Scene> _currentScene;

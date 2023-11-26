@@ -14,7 +14,7 @@ class MenuScene : public Scene {
         MenuScene();
         ~MenuScene();
         void init();
-        void update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
+        std::string update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
         void draw(std::shared_ptr<sf::RenderWindow> window);
     private:
         sf::Sprite _background;

@@ -22,13 +22,15 @@ void MenuScene::init()
         std::cout << "Button play clicked" << std::endl;
     });
     this->_guiManager.addButton("quit", "assets/quit_normal.png", "assets/quit_hover.png", sf::Vector2f(100, 200), sf::Vector2f(2.0f, 2.0f), [&]() {
-        this->_window->close();
+        exit(0);
     });
 }
 
-void MenuScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
+std::string MenuScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
-    this->_guiManager.handleEvent(_window, event);
+    if (this->_guiManager.handleEvent(_window, event) == 1)
+        return "game";
+    return "";
 }
 
 void MenuScene::draw(std::shared_ptr<sf::RenderWindow> window)

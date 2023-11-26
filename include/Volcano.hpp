@@ -13,6 +13,7 @@
 #include "GUI/GUIManager.hpp"
 #include "Scene/SceneManager.hpp"
 #include "Scenes/MenuScene.hpp"
+#include "Scenes/GameScene.hpp"
 
 class Volcano {
     public:

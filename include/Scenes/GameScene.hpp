@@ -17,7 +17,7 @@ class GameScene : public Scene {
         GameScene();
         ~GameScene();
         void init() override;
-        void update(std::shared_ptr<sf::RenderWindow> window, sf::Event event) override;
+        std::string update(std::shared_ptr<sf::RenderWindow> window, sf::Event event) override;
         void draw(std::shared_ptr<sf::RenderWindow> window) override;
     private:
         sf::Sprite _sprite;

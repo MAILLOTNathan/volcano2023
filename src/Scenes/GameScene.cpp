@@ -28,8 +28,9 @@ void GameScene::init()
     });
 }
 
-void GameScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
+std::string GameScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
+    return "";
 }
 
 void GameScene::draw(std::shared_ptr<sf::RenderWindow> window)
