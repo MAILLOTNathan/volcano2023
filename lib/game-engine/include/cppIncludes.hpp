@@ -31,5 +31,6 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
+#include <SFML/Graphics/Color.hpp>
 
 #endif /* !CPPINCLUDES_HPP_ */

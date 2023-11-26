@@ -6,10 +6,13 @@
 */
 
 #pragma once
+#include "cppIncludes.hpp"
 #include "Maths/Rect.hpp"
 #include "Maths/Vector2.hpp"
 #include "Graphical/Window.hpp"
 #include "GUI/GUIManager.hpp"
+#include "Scene/SceneManager.hpp"
+#include "Scenes/MenuScene.hpp"
 
 class Volcano {
     public:
@@ -22,4 +25,5 @@ class Volcano {
     private:
         std::shared_ptr<Window> _window;
         std::shared_ptr<GUIManager> _guiManager;
+        std::shared_ptr<SceneManager> _sceneManager;
 };

@@ -19,7 +19,7 @@ class Window {
         void init(std::uint32_t width, std::uint32_t height, std::string title);
         void stop();
 
-        void clear();
+        void clear(sf::Color color = sf::Color::Black);
         void draw();
         void pollEvent();
 

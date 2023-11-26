@@ -15,7 +15,7 @@ void Scene::init()
 {
 }
 
-void Scene::update()
+void Scene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
 
 }
