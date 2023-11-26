@@ -15,7 +15,10 @@ class Scene {
         Scene();
         virtual ~Scene() = default;
         virtual void init();
-        virtual void update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
+        virtual std::string update(std::shared_ptr<sf::RenderWindow> window, sf::Event event);
         virtual void draw(std::shared_ptr<sf::RenderWindow> window);
+        virtual std::string getSceneName() const;
+        virtual void setSceneName(const std::string &name);
     private:
+        std::string _name;
 };

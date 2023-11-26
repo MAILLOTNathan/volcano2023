@@ -22,6 +22,7 @@ class GUIButton {
         void setRect(sf::IntRect rect);
         void changeState(bool hover);
         void setCallback(std::function<void()> callback);
+        void setName(const std::string &name) { _name = name; }
 
         bool isHover(sf::Vector2i mousePos);
 
@@ -33,6 +34,7 @@ class GUIButton {
 
     protected:
     private:
+        std::string _name;
         std::array<sf::Texture, 2> _textures;
         sf::Sprite _sprite;
         sf::IntRect _rect;

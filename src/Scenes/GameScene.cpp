@@ -28,22 +28,28 @@ void GameScene::init()
     });
 }
 
-void GameScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
+std::string GameScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
     if (this->_playerVelocity.x != 0) {
         this->_sprite.setTexture(this->_texturePlayerMoving);
         if (this->_playerVelocity.x > 0 && this->_playerVelocity.y <= 0) {
             this->_sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
-            this->_sprite.setScale(sf::Vector2f(2.0f, 2.0f));
-        } 
+        } else if (this->_playerVelocity.x < 0 && this->_playerVelocity.y <= 0) {
+            this->_sprite.setTextureRect(sf::IntRect(32, 0, 32, 32));
+        } else if (this->_playerVelocity.x > 0 && this->_playerVelocity.y >= 0) {
+            this->_sprite.setTextureRect(sf::IntRect(0, 32, 32, 32));
+        } else if (this->_playerVelocity.x < 0 && this->_playerVelocity.y >= 0) {
+            this->_sprite.setTextureRect(sf::IntRect(32, 32, 32, 32));
+        }
     }
     else
         this->_sprite.setTexture(this->_texturePlayerStatic);
+    this->_sprite.move(this->_playerVelocity);
 }
 
 void GameScene::draw(std::shared_ptr<sf::RenderWindow> window)
 {
-    (void)window;
+    window->draw(this->_sprite);
 }
 
 GameScene::~GameScene()

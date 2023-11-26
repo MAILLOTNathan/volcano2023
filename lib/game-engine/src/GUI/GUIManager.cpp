@@ -26,16 +26,19 @@ void GUIManager::draw(std::shared_ptr<sf::RenderWindow> window)
         button.second->draw(window);
 }
 
-void GUIManager::handleEvent(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
+int GUIManager::handleEvent(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
     for (auto &button : _buttons) {
         if (button.second->isHover(sf::Mouse::getPosition())) {
             button.second->changeState(true);
-            if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+            if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
                 button.second->getCallback()();
+                return (1);
+            }
         } else
             button.second->changeState(false);
     }
+    return 0;
 }
 
 void GUIManager::addButton(std::string name, std::string path_normal, std::string path_hover, sf::Vector2f pos, sf::Vector2f scale, std::function<void()> callback)
@@ -45,6 +48,7 @@ void GUIManager::addButton(std::string name, std::string path_normal, std::strin
     _buttons[name]->setPosition(pos);
     _buttons[name]->setScale(scale);
     _buttons[name]->setRect(sf::IntRect(_buttons[name]->getSprite().getGlobalBounds()));
+    _buttons[name]->setName(name);
     _buttons[name]->setCallback(callback);
 }
 

@@ -26,3 +26,5 @@ add_custom_command(TARGET game-engine POST_BUILD
 	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:game-engine> ${CMAKE_SOURCE_DIR}/../libgraphical-engine.so
 	)
 target_link_libraries(game-engine sfml-graphics sfml-window sfml-system sfml-audio)
+target_compile_options(game-engine PRIVATE -g3 -ggdb)
+

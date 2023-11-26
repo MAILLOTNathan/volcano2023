@@ -18,7 +18,7 @@ class GUIManager {
 
         void init();
         void draw(std::shared_ptr<sf::RenderWindow> window);
-        void handleEvent(std::shared_ptr<sf::RenderWindow>, sf::Event event);
+        int handleEvent(std::shared_ptr<sf::RenderWindow>, sf::Event event);
         void addButton(std::string name, std::string path_normal, std::string path_hover, sf::Vector2f pos, sf::Vector2f scale, std::function<void()> callback);
         void removeButton(std::string name);
         void removeAllButtons();

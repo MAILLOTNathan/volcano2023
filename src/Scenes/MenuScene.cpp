@@ -26,9 +26,11 @@ void MenuScene::init()
     });
 }
 
-void MenuScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
+std::string MenuScene::update(std::shared_ptr<sf::RenderWindow> window, sf::Event event)
 {
-    this->_guiManager.handleEvent(_window, event);
+    if (this->_guiManager.handleEvent(_window, event) == 1)
+        return "game";
+    return "";
 }
 
 void MenuScene::draw(std::shared_ptr<sf::RenderWindow> window)

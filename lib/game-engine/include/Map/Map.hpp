@@ -17,7 +17,7 @@ class Map {
     ~Map();
 
     void init(std::string file);
-    void addPlateform(sf::Vector2f pos);
+    void addPlateform(params_t *params);
     void setName(std::string name);
     void display(void);
 

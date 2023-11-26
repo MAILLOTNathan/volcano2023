@@ -42,6 +42,8 @@ void Volcano::registerGUI()
 {
     this->_guiManager->addButton("play", "assets/play_normal.png", "assets/play_hover.png", sf::Vector2f(100, 100), sf::Vector2f(1, 1), [&]() {
         color = sf::Color::Red;
+        std::cout << "Hello toi" << std::endl;
+
     });
 
     this->_guiManager->addButton("quit", "assets/quit_normal.png", "assets/quit_hover.png", sf::Vector2f(200, 100), sf::Vector2f(1, 1), [&]() {
@@ -51,13 +53,19 @@ void Volcano::registerGUI()
 
 void Volcano::run()
 {
+    std::string new_scene;
     _sceneManager->addScene("menu", std::make_shared<MenuScene>());
+    _sceneManager->addScene("game", std::make_shared<GameScene>());
     _sceneManager->loadScene("menu");
     // e_manager.registerEntity("player", "assets/theboat.png");
     while (_window->isOpen()) {
+        std::cout << "The current scene name is: " << _sceneManager->getCurrentSceneName() << std::endl;
         _window->pollEvent();
         _window->clear(color);
-        _sceneManager->update(_window->getWindow(), _window->getEvent());
+        new_scene = _sceneManager->update(_window->getWindow(), _window->getEvent());
+        if (new_scene != "")
+            _sceneManager->loadScene(new_scene);
+        new_scene = "";
         _sceneManager->draw(_window->getWindow());
         _window->draw();
     }
